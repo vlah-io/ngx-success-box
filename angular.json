@@ -1,0 +1,164 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-success-box": {
+      "projectType": "library",
+      "root": "projects/ngx-success-box",
+      "sourceRoot": "projects/ngx-success-box/src",
+      "prefix": "vlahio",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ngx-success-box/tsconfig.lib.json",
+            "project": "projects/ngx-success-box/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-success-box/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-success-box/src/test.ts",
+            "tsConfig": "projects/ngx-success-box/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-success-box/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-success-box/tsconfig.lib.json",
+              "projects/ngx-success-box/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-success-box-test": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ngx-success-box-test",
+      "sourceRoot": "projects/ngx-success-box-test/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ngx-success-box-test",
+            "index": "projects/ngx-success-box-test/src/index.html",
+            "main": "projects/ngx-success-box-test/src/main.ts",
+            "polyfills": "projects/ngx-success-box-test/src/polyfills.ts",
+            "tsConfig": "projects/ngx-success-box-test/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ngx-success-box-test/src/favicon.ico",
+              "projects/ngx-success-box-test/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-success-box-test/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngx-success-box-test/src/environments/environment.ts",
+                  "with": "projects/ngx-success-box-test/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngx-success-box-test:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngx-success-box-test:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngx-success-box-test:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-success-box-test/src/test.ts",
+            "polyfills": "projects/ngx-success-box-test/src/polyfills.ts",
+            "tsConfig": "projects/ngx-success-box-test/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-success-box-test/karma.conf.js",
+            "assets": [
+              "projects/ngx-success-box-test/src/favicon.ico",
+              "projects/ngx-success-box-test/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-success-box-test/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-success-box-test/tsconfig.app.json",
+              "projects/ngx-success-box-test/tsconfig.spec.json",
+              "projects/ngx-success-box-test/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ngx-success-box-test/e2e/protractor.conf.js",
+            "devServerTarget": "ngx-success-box-test:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngx-success-box-test:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "ngx-success-box"
+}
