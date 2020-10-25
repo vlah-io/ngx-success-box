@@ -1,0 +1,18 @@
+<div class="vlahio-success-box-backdrop" [ngClass]="{'vlahio-absolute': container}"></div>
+<div class="vlahio-success-box" [ngClass]="{'vlahio-absolute': container}">
+  <div class="vlahio-success-box-container" #successBoxContainer>
+    <div class="vlahio-top">
+      <span class="vlahio-close"
+            (click)="dismiss$()"><span></span></span>
+    </div>
+
+    <div class="vlahio-content" [innerHTML]="message"></div>
+
+    <ng-template [ngIf]="callbackButtonText">
+      <div class="vlahio-bottom">
+        <span class="vlahio-retry"
+              (click)="callback$()">{{callbackButtonText}}</span>
+      </div>
+    </ng-template>
+  </div>
+</div>

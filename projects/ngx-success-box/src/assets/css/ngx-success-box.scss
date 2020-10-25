@@ -1,0 +1,31 @@
+@import "variables";
+
+.vlahio-success-box-backdrop, .vlahio-success-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  word-break: break-all;
+
+  &.vlahio-absolute {
+    position: absolute !important;
+  }
+}
+
+.vlahio-success-box-backdrop {
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.vlahio-success-box {
+  align-items: center;
+  justify-content: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  .vlahio-success-box-container {
+    @include success-container;
+  }
+}

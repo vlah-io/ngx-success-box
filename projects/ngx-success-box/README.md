@@ -1,24 +1,22 @@
-# NgxSuccessBox
+@vlah.io/ngx-success-box
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+Set of reusable Angular components (factory workers) to help display success messages.
 
-## Code scaffolding
+### Usage (code example)
 
-Run `ng generate component component-name --project ngx-success-box` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-success-box`.
-> Note: Don't forget to add `--project ngx-success-box` or else it will be added to the default project in your `angular.json` file. 
+```
+  constructor(private successBoxWorker: SuccessBoxWorker) {
+  }
 
-## Build
+  render(): void {
+    this.successBoxWorker.render(message: string, options: DisplayOptionsInterface = {}): ComponentRef<SuccessBoxComponent>
+  }
+```
 
-Run `ng build ngx-success-box` to build the project. The build artifacts will be stored in the `dist/` directory.
+### CSS styles
+```
+  /* You can add global styles to this file, and also import other style files */
+  @import "../../ngx-success-box/src/assets/css/ngx-success-box.css";
+```
 
-## Publishing
-
-After building your library with `ng build ngx-success-box`, go to the dist folder `cd dist/ngx-success-box` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test ngx-success-box` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+For more details read [here](https://github.com/vlah-io/ngx-success-box/blob/master/INSTALLATION.md).

@@ -1,12 +1,21 @@
-import { NgModule } from '@angular/core';
-import { NgxSuccessBoxComponent } from './ngx-success-box.component';
-
+import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
+import {SuccessBoxComponent} from './component/success-box.component';
 
 
 @NgModule({
-  declarations: [NgxSuccessBoxComponent],
   imports: [
+    CommonModule
   ],
-  exports: [NgxSuccessBoxComponent]
+  declarations: [
+    SuccessBoxComponent
+  ],
+  exports: [
+    SuccessBoxComponent
+  ],
+  entryComponents: [
+    SuccessBoxComponent
+  ]
 })
-export class NgxSuccessBoxModule { }
+export class NgxSuccessBoxModule {
+}
