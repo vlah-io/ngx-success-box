@@ -27,7 +27,7 @@ export class SuccessBoxWorker {
     if (callbackButton) {
       compRefInstance.callbackButtonText = callbackButton.buttonText;
       compRefInstance.subSink.add(
-        compRefInstance.callback.subscribe(
+        compRefInstance.callback$.subscribe(
           () => {
             callbackButton.callback(compRef);
             this.destroy(compRef);
@@ -37,7 +37,7 @@ export class SuccessBoxWorker {
     }
 
     compRefInstance.subSink.add(
-      compRefInstance.dismiss.subscribe(
+      compRefInstance.dismiss$.subscribe(
         () => {
           if (dismiss) {
             dismiss(compRef);

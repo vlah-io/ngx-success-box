@@ -11,8 +11,8 @@ export class SuccessBoxComponent implements OnDestroy {
   @Input() message: string;
   @Input() callbackButtonText?: string | null;
   @Input() container?: HTMLElement;
-  @Output() callback?: EventEmitter<true> = new EventEmitter<true>();
-  @Output() dismiss: EventEmitter<true> = new EventEmitter<true>();
+  @Output() callback$?: EventEmitter<true> = new EventEmitter<true>();
+  @Output() dismiss$: EventEmitter<true> = new EventEmitter<true>();
 
   @ViewChild('successBoxContainer', {static: false})
   set _successBoxContainer(elRef: ElementRef<HTMLDivElement>) {
@@ -25,18 +25,18 @@ export class SuccessBoxComponent implements OnDestroy {
 
   @HostListener('document:keydown.escape')
   _onEsc(): void {
-    this.dismiss$();
+    this.dismiss();
   }
 
   ngOnDestroy(): void {
     this.subSink.unsubscribe();
   }
 
-  callback$(): void {
-    this.callback.emit(true);
+  callback(): void {
+    this.callback$.emit(true);
   }
 
-  dismiss$(): void {
-    this.dismiss.emit(true);
+  dismiss(): void {
+    this.dismiss$.emit(true);
   }
 }
