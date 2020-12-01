@@ -1,21 +1,20 @@
 import {Component, ElementRef, EventEmitter, HostListener, Input, OnDestroy, Output, ViewChild} from '@angular/core';
-import {SubSink} from 'subsink';
+import {SubSinkWorker} from '@vlah.io/ngx-worker';
 
 @Component({
   selector: 'vlahio-success-box',
   templateUrl: './success-box.component.html'
 })
 export class SuccessBoxComponent implements OnDestroy {
-  subSink = new SubSink();
-
-  @Input() message: string;
+  @Input() message: string | undefined;
   @Input() callbackButtonText?: string | null;
-  @Input() container?: HTMLElement;
-  @Output() callback$?: EventEmitter<true> = new EventEmitter<true>();
+  @Input() container?: HTMLElement | undefined;
+  @Output() callback$: EventEmitter<true> = new EventEmitter<true>();
   @Output() dismiss$: EventEmitter<true> = new EventEmitter<true>();
+  subSink = new SubSinkWorker();
 
   @ViewChild('successBoxContainer', {static: false})
-  set _successBoxContainer(elRef: ElementRef<HTMLDivElement>) {
+  set successBoxContainer(elRef: ElementRef<HTMLDivElement>) {
     if (this.container instanceof HTMLElement) {
       elRef.nativeElement.style.maxHeight = Math.round(
         this.container.clientHeight - this.container.clientHeight / 100 * 20
@@ -24,7 +23,7 @@ export class SuccessBoxComponent implements OnDestroy {
   }
 
   @HostListener('document:keydown.escape')
-  _onEsc(): void {
+  onEsc(): void {
     this.dismiss();
   }
 

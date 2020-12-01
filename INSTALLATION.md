@@ -6,7 +6,7 @@ Package generated with `angular-cli` as follows
 ### Create new
 
 ```
-  ng new ngx-success-box --createApplication=false --prefix=vlah
+  ng new ngx-success-box --createApplication=false --prefix=vlahio
   cd ngx-success-box
 ```
 
@@ -14,7 +14,7 @@ Package generated with `angular-cli` as follows
 
 ```
   cd ngx-success-box
-  ng generate library ngx-success-box --prefix=vlah
+  ng generate library ngx-success-box --prefix=vlahio
 ```
 
 ### Generate test application

@@ -2,7 +2,6 @@ import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {SuccessBoxComponent} from './component/success-box.component';
 
-
 @NgModule({
   imports: [
     CommonModule
@@ -11,9 +10,6 @@ import {SuccessBoxComponent} from './component/success-box.component';
     SuccessBoxComponent
   ],
   exports: [
-    SuccessBoxComponent
-  ],
-  entryComponents: [
     SuccessBoxComponent
   ]
 })
