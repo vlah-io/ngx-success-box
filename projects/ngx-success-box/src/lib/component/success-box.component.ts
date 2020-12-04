@@ -7,7 +7,7 @@ import {SubSinkWorker} from '@vlah.io/ngx-worker';
 })
 export class SuccessBoxComponent implements OnDestroy {
   @Input() message: string | undefined;
-  @Input() callbackButtonText?: string | null;
+  @Input() callbackButtonText?: string | null | undefined;
   @Input() container?: HTMLElement | undefined;
   @Output() callback$: EventEmitter<true> = new EventEmitter<true>();
   @Output() dismiss$: EventEmitter<true> = new EventEmitter<true>();
